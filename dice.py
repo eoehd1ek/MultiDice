@@ -2,84 +2,81 @@ from tkinter import *
 from tkinter import messagebox
 from random import *
 import tkinter.font		#글씨 크기 변경할 때 필요함
-import os				#저장 위치를 알기 위해
 
 sum = 0
 
-def roll(DebugText = "None"):
+def roll():
 	global sum
 	sum = 0
 	
 	## 1번째 부분
-	if (pad1.get() ==0):
+	if (pad1.get() == 0):
 		pad1_value.set(" ")
 	else:
-		result = randint(1,pad1.get())
+		result = randint(1, pad1.get())
 		pad1_value.set(str(result))
 		sum += result
 		
 	## 2번째 부분
-	if (pad2.get() ==0):
+	if (pad2.get() == 0):
 		pad2_value.set(" ")
 	else:
-		result = randint(1,pad2.get())
+		result = randint(1, pad2.get())
 		pad2_value.set(str(result))
 		sum += result
 		
 	## 3번째 부분
-	if (pad3.get() ==0):
+	if (pad3.get() == 0):
 		pad3_value.set(" ")
 	else:
-		result = randint(1,pad3.get())
+		result = randint(1, pad3.get())
 		pad3_value.set(str(result))
 		sum += result
 		
 	## 4번째 부분
-	if (pad4.get() ==0):
+	if (pad4.get() == 0):
 		pad4_value.set(" ")
 	else:
-		result = randint(1,pad4.get())
+		result = randint(1, pad4.get())
 		pad4_value.set(str(result))
 		sum += result
 		
 	## 5번째 부분
-	if (pad5.get() ==0):
+	if (pad5.get() == 0):
 		pad5_value.set(" ")
 	else:
-		result = randint(1,pad5.get())
+		result = randint(1, pad5.get())
 		pad5_value.set(str(result))
 		sum += result
 		
 	## 6번째 부분
-	if (pad6.get() ==0):
+	if (pad6.get() == 0):
 		pad6_value.set(" ")
 	else:
-		result = randint(1,pad6.get())
+		result = randint(1, pad6.get())
 		pad6_value.set(str(result))
 		sum += result
 		
 	## 7번째 부분
-	if (pad7.get() ==0):
+	if (pad7.get() == 0):
 		pad7_value.set(" ")
 	else:
-		result = randint(1,pad7.get())
+		result = randint(1, pad7.get())
 		pad7_value.set(str(result))
 		sum += result
 		
 	## 8번째 부분
-	if (pad8.get() ==0):
+	if (pad8.get() == 0):
 		pad8_value.set(" ")
 	else:
-		result = randint(1,pad8.get())
+		result = randint(1, pad8.get())
 		pad8_value.set(str(result))
 		sum += result
 		
 	sumStringVar.set(sum)
 	
-	if(DebugText == "reset"):
-		messagebox.showinfo("ROLL", "초기화를 수행했습니다.")	
-	elif (DebugText == "None"):
-		messagebox.showinfo("ROLL", "주사위를 굴렸습니다!")	
+	messagebox.showinfo("ROLL", "주사위를 굴렸습니다!")	
+
 def reset():
 	radio_pad1_0.select()
 	radio_pad2_0.select()
@@ -90,7 +87,8 @@ def reset():
 	radio_pad7_0.select()
 	radio_pad8_0.select()
 	
-	roll("reset")
+	messagebox.showinfo("ROLL", "초기화를 수행했습니다.")	
+
 def D1_6():
 	radio_pad1_6.select()
 	radio_pad2_0.select()
@@ -100,6 +98,7 @@ def D1_6():
 	radio_pad6_0.select()
 	radio_pad7_0.select()
 	radio_pad8_0.select()
+
 def D2_6():
 	radio_pad1_6.select()
 	radio_pad2_6.select()
@@ -109,6 +108,7 @@ def D2_6():
 	radio_pad6_0.select()
 	radio_pad7_0.select()
 	radio_pad8_0.select()
+
 def D1_4():
 	radio_pad1_4.select()
 	radio_pad2_0.select()
@@ -118,6 +118,7 @@ def D1_4():
 	radio_pad6_0.select()
 	radio_pad7_0.select()
 	radio_pad8_0.select()
+
 def D2_4():
 	radio_pad1_4.select()
 	radio_pad2_4.select()
@@ -127,6 +128,7 @@ def D2_4():
 	radio_pad6_0.select()
 	radio_pad7_0.select()
 	radio_pad8_0.select()
+
 def D1_8():
 	radio_pad1_8.select()
 	radio_pad2_0.select()
@@ -136,6 +138,7 @@ def D1_8():
 	radio_pad6_0.select()
 	radio_pad7_0.select()
 	radio_pad8_0.select()
+
 def D2_8():
 	radio_pad1_8.select()
 	radio_pad2_8.select()
@@ -145,6 +148,7 @@ def D2_8():
 	radio_pad6_0.select()
 	radio_pad7_0.select()
 	radio_pad8_0.select()
+
 def D1_10():
 	radio_pad1_10.select()
 	radio_pad2_0.select()
@@ -154,6 +158,7 @@ def D1_10():
 	radio_pad6_0.select()
 	radio_pad7_0.select()
 	radio_pad8_0.select()
+
 def D2_10():
 	radio_pad1_10.select()
 	radio_pad2_10.select()
@@ -164,6 +169,31 @@ def D2_10():
 	radio_pad7_0.select()
 	radio_pad8_0.select()
 
+def on_key_down_handler(event):
+    # 키 바인드 추가 
+	s = event.char
+	if s == "1":
+		reset()
+	elif s == "2":
+		D1_6()
+	elif s == "3":
+		D2_6()
+	elif s == "4":
+		D1_4()
+	elif s == "5":
+		D2_4()
+	elif s == "6":
+		D1_8()
+	elif s == "7":
+		D2_8()
+	elif s == "8":
+		D1_10()
+	elif s == "9":
+		D2_10()
+	elif s == " ":
+		roll()
+	print(type(event.char))
+	
 if __name__ == "__main__":
 	tk = Tk()
 	tk.title("Dice")
@@ -175,6 +205,10 @@ if __name__ == "__main__":
 	## 라디오 버튼을 사용하기 위해 만듬
 	pad1 = IntVar(); pad2 = IntVar(); pad3 = IntVar(); pad4 = IntVar()
 	pad5 = IntVar(); pad6 = IntVar(); pad7 = IntVar(); pad8 = IntVar()
+
+	## key bind
+	tk.bind("<Key>", on_key_down_handler)
+
 
 	## 폰트 데이터 모음
 	fontData_Entry = ("Verdana", 50)
@@ -415,29 +449,28 @@ if __name__ == "__main__":
 	sum_Entry.place(x= 680, y=450)
 
 	## 0으로 초기화
-	AllResetButton = Button(tk, width = 7, height = 2, text = "초기화", font = fontData_Radio, command = reset)
-	AllResetButton.place(x=25, y=450)
+	CustomButton1 = Button(tk, width = 7, height = 2, text = "초기화", font = fontData_Radio, command = reset)
+	CustomButton1.place(x=25, y=450)
 	## 여러 옵션 버튼
-	CustomButton1 = Button(tk, width = 7, height = 2, text = "C1, 1D6", font = fontData_Radio, command = D1_6)
-	CustomButton1.place(x=95, y=450)	## 2번
-	CustomButton2 = Button(tk, width = 7, height = 2, text = "C2, 2D6", font = fontData_Radio, command = D2_6)
-	CustomButton2.place(x=165, y=450)	## 3번
-	CustomButton3 = Button(tk, width = 7, height = 2, text = "C3, 1D4", font = fontData_Radio, command = D1_4)
-	CustomButton3.place(x=25, y=500)	## 4번
-	CustomButton4 = Button(tk, width = 7, height = 2, text = "C4, 1D8", font = fontData_Radio, command = D1_8)
-	CustomButton4.place(x=95, y=500)	## 5번
-	CustomButton5 = Button(tk, width = 7, height = 2, text = "C5, 1D10", font = fontData_Radio, command = D1_10)
-	CustomButton5.place(x=165, y=500)	## 6번
-	CustomButton6 = Button(tk, width = 7, height = 2, text = "C6, 2D4", font = fontData_Radio, command = D2_4)
-	CustomButton6.place(x=25, y=550)	## 7번
-	CustomButton7 = Button(tk, width = 7, height = 2, text = "C7, 2D8", font = fontData_Radio, command = D2_8)
-	CustomButton7.place(x=95, y=550)	## 8번
-	CustomButton8 = Button(tk, width = 7, height = 2, text = "C8, 2D10", font = fontData_Radio, command = D2_10)
-	CustomButton8.place(x=165, y=550)	## 9번
-
+	CustomButton2 = Button(tk, width = 7, height = 2, text = "1D6", font = fontData_Radio, command = D1_6)
+	CustomButton2.place(x=95, y=450)	## 2번
+	CustomButton3 = Button(tk, width = 7, height = 2, text = "2D6", font = fontData_Radio, command = D2_6)
+	CustomButton3.place(x=165, y=450)	## 3번
+	CustomButton4 = Button(tk, width = 7, height = 2, text = "1D4", font = fontData_Radio, command = D1_4)
+	CustomButton4.place(x=25, y=500)	## 4번
+	CustomButton5 = Button(tk, width = 7, height = 2, text = "1D8", font = fontData_Radio, command = D1_8)
+	CustomButton5.place(x=95, y=500)	## 5번
+	CustomButton6 = Button(tk, width = 7, height = 2, text = "1D10", font = fontData_Radio, command = D1_10)
+	CustomButton6.place(x=165, y=500)	## 6번
+	CustomButton7 = Button(tk, width = 7, height = 2, text = "2D4", font = fontData_Radio, command = D2_4)
+	CustomButton7.place(x=25, y=550)	## 7번
+	CustomButton8 = Button(tk, width = 7, height = 2, text = "2D8", font = fontData_Radio, command = D2_8)
+	CustomButton8.place(x=95, y=550)	## 8번
+	CustomButton9 = Button(tk, width = 7, height = 2, text = "2D10", font = fontData_Radio, command = D2_10)
+	CustomButton9.place(x=165, y=550)	## 9번
 
 	## 다운로드 버튼
-	downButton = Button(tk, width = 15, height = 3, text = "DICE!", justify = "right", font = fontData_DICE, command = roll)		#클릭시 다운로드
+	downButton = Button(tk, width = 15, height = 3, text = "ROLL!", justify = "right", font = fontData_DICE, command = roll)		#클릭시 다운로드
 	downButton.place(x=320, y=450)
 
 	tk.mainloop()

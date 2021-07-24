@@ -1,6 +1,8 @@
 # MultiDice
 
-TRPG용 간단한 주사위 프로그램  
+이 프로그램은 TRPG용 간단한 주사위 프로그램입니다.  
+Python의 Tkinter를 사용하여 GUI를 구현했습니다.  
+프로그램의 실행 화면은 다음과 같습니다.  
 <img src="https://user-images.githubusercontent.com/49092390/126861457-81c6f22d-e772-4a4b-9116-17c7b01fcbe2.png" width="600" height="442">  
 [다운로드 (릴리즈 페이지)](https://github.com/eoehd1ek/MultiDice/releases)
 
